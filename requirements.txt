@@ -1,0 +1,4 @@
+# Python Ultimate Calculator - Dependências do Projeto
+# Prioriza a biblioteca padrão do Python (Decimal, Fractions, Math, Statistics, Datetime, JSON, Tkinter)
+matplotlib>=3.8.0
+pytest>=8.0.0

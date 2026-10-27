@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Ultimate Calculator — Web Edition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-theme">
+  <div class="calculator-app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo-mark">⚡</span>
+        <h1>Python Ultimate Calculator</h1>
+      </div>
+      <div class="header-actions">
+        <span class="badge">Web Edition</span>
+        <button id="btn-theme-toggle" class="btn-ghost">Alternar Tema</button>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <nav class="category-tabs">
+        <button class="tab-btn active" data-tab="calc">Calculadora</button>
+        <button class="tab-btn" data-tab="fractions">Frações</button>
+        <button class="tab-btn" data-tab="algebra">Álgebra</button>
+        <button class="tab-btn" data-tab="finance">Financeiro</button>
+        <button class="tab-btn" data-tab="converters">Conversores</button>
+        <button class="tab-btn" data-tab="history">Histórico</button>
+      </nav>
+
+      <section id="tab-calc" class="tab-pane active">
+        <div class="display-box">
+          <div class="display-meta">
+            <span id="mem-flag" class="mem-flag"></span>
+            <span id="angle-mode-flag" class="angle-flag">DEG</span>
+          </div>
+          <div id="display-expr" class="display-expr"></div>
+          <div id="display-result" class="display-result">0</div>
+        </div>
+
+        <div class="calc-keypad">
+          <div class="memory-row">
+            <button class="btn-mem" data-mem="MC">MC</button>
+            <button class="btn-mem" data-mem="MR">MR</button>
+            <button class="btn-mem" data-mem="M+">M+</button>
+            <button class="btn-mem" data-mem="M-">M-</button>
+            <button class="btn-mem" data-mem="MS">MS</button>
+          </div>
+
+          <div class="keys-grid">
+            <button class="btn-fn" data-insert="sin(">sin</button>
+            <button class="btn-fn" data-insert="cos(">cos</button>
+            <button class="btn-fn" data-insert="tan(">tan</button>
+            <button class="btn-fn" data-insert="pi">π</button>
+            <button class="btn-danger" id="btn-clear">C</button>
+            <button class="btn-ghost" id="btn-backspace">⌫</button>
+
+            <button class="btn-fn" data-insert="sqrt(">√</button>
+            <button class="btn-fn" data-insert="^2">x²</button>
+            <button class="btn-fn" data-insert="^">xʸ</button>
+            <button class="btn-fn" data-insert="log10(">log</button>
+            <button class="btn-fn" data-insert="ln(">ln</button>
+            <button class="btn-op" data-insert=" / ">÷</button>
+
+            <button class="btn-fn" data-insert="(">(</button>
+            <button class="btn-fn" data-insert=")">)</button>
+            <button class="btn-fn" data-insert="!">n!</button>
+            <button class="btn-num" data-insert="7">7</button>
+            <button class="btn-num" data-insert="8">8</button>
+            <button class="btn-num" data-insert="9">9</button>
+            <button class="btn-op" data-insert=" * ">×</button>
+
+            <button class="btn-fn" id="btn-inv">1/x</button>
+            <button class="btn-fn" id="btn-sign">±</button>
+            <button class="btn-fn" data-insert=" % ">%</button>
+            <button class="btn-num" data-insert="4">4</button>
+            <button class="btn-num" data-insert="5">5</button>
+            <button class="btn-num" data-insert="6">6</button>
+            <button class="btn-op" data-insert=" - ">−</button>
+
+            <button class="btn-fn" id="btn-toggle-angle">RAD/DEG</button>
+            <button class="btn-fn" data-insert="abs(">|x|</button>
+            <button class="btn-num" data-insert="0">0</button>
+            <button class="btn-num" data-insert="1">1</button>
+            <button class="btn-num" data-insert="2">2</button>
+            <button class="btn-num" data-insert="3">3</button>
+            <button class="btn-op" data-insert=" + ">+</button>
+
+            <button class="btn-num" data-insert=",">,</button>
+            <button class="btn-action" id="btn-copy">Copiar</button>
+            <button class="btn-equal" id="btn-equals">=</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-fractions" class="tab-pane">
+        <div class="card">
+          <h2>Operações de Frações Exatas</h2>
+          <div class="row">
+            <input type="number" id="f-n1" value="3" placeholder="Num 1" /> /
+            <input type="number" id="f-d1" value="4" placeholder="Den 1" />
+            <select id="f-op">
+              <option value="+">+</option>
+              <option value="-">−</option>
+              <option value="*">×</option>
+              <option value="/">÷</option>
+            </select>
+            <input type="number" id="f-n2" value="2" placeholder="Num 2" /> /
+            <input type="number" id="f-d2" value="5" placeholder="Den 2" />
+            <button id="btn-calc-frac" class="btn-primary">Calcular</button>
+          </div>
+          <div id="frac-output" class="output-box">-</div>
+        </div>
+      </section>
+
+      <section id="tab-algebra" class="tab-pane">
+        <div class="card">
+          <h2>Equação do 2º Grau (ax² + bx + c = 0)</h2>
+          <div class="row">
+            <label>a: <input type="number" id="q-a" value="1" /></label>
+            <label>b: <input type="number" id="q-b" value="-5" /></label>
+            <label>c: <input type="number" id="q-c" value="6" /></label>
+            <button id="btn-calc-quad" class="btn-primary">Resolver Bhaskara</button>
+          </div>
+          <div id="quad-output" class="output-box">-</div>
+        </div>
+      </section>
+
+      <section id="tab-finance" class="tab-pane">
+        <div class="card">
+          <h2>Financiamento com Prestações Fixas (Tabela Price)</h2>
+          <div class="row">
+            <label>Valor Financiado: <input type="number" id="fin-pv" value="10000" /></label>
+            <label>Taxa Mensal (%): <input type="number" id="fin-rate" value="1.5" step="0.1" /></label>
+            <label>Parcelas: <input type="number" id="fin-n" value="24" /></label>
+            <button id="btn-calc-fin" class="btn-primary">Calcular Parcelas</button>
+          </div>
+          <div id="fin-output" class="output-box">-</div>
+        </div>
+      </section>
+
+      <section id="tab-converters" class="tab-pane">
+        <div class="card">
+          <h2>Conversor de Grandezas</h2>
+          <div class="row">
+            <input type="number" id="conv-val" value="100" />
+            <select id="conv-cat">
+              <option value="comprimento">Comprimento (m, km, cm, mi...)</option>
+              <option value="dados">Dados (MB vs MiB)</option>
+              <option value="temperatura">Temperatura (°C, °F, K)</option>
+            </select>
+            <select id="conv-from"></select>
+            <span>➔</span>
+            <select id="conv-to"></select>
+            <button id="btn-calc-conv" class="btn-primary">Converter</button>
+          </div>
+          <div id="conv-output" class="output-box">-</div>
+        </div>
+      </section>
+
+      <section id="tab-history" class="tab-pane">
+        <div class="card">
+          <div class="card-header-row">
+            <h2>Histórico de Operações</h2>
+            <button id="btn-clear-history" class="btn-danger">Limpar Histórico</button>
+          </div>
+          <ul id="history-list" class="history-list"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
