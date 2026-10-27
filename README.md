@@ -1,4 +1,4 @@
-# Python Ultimate Calculator — Calculadora Multifuncional Avançada
+# 📔 Python Ultimate Calculator — Calculadora Multifuncional Avançada
 
 Uma aplicação completa de cálculo científico, financeiro, estatístico, algébrico e geométrico desenvolvida em **Python 3.10+ / 3.12** com interface gráfica moderna em **Tkinter/ttk** e edição web interativa.
 
